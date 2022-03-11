@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ExceptMiddleware;
+use App\Http\Middleware\OnlyMiddleware;
 use App\Http\Middleware\Test;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -65,5 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'test' => Test::class,
+        'onlyMiddleware' => OnlyMiddleware::class,
+        'exceptMiddleware' => ExceptMiddleware::class,
     ];
 }

@@ -5,15 +5,17 @@ namespace App\Http\Controllers\System;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CustomerController extends Controller
 {
+
+    //Assingnment 2
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('onlyMiddleware')->only('index');
         $this->middleware('exceptMiddleware')->except('destroy');
     }
-    public function index()
+    public function index(Request $request)
     {
     }
 

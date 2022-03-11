@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\System\CategoryController;
+// use App\Http\Controllers\System\CategoryController;
+// use App\Http\Controllers\System\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Assignment 1 starts
 
 Route::group(['namespace' => 'System', 'middleware' => 'test'], function () {
     Route::get('/user/{name}', 'UserController@show');
@@ -26,3 +28,15 @@ Route::group(['namespace' => 'System', 'middleware' => 'test'], function () {
 Route::group(['prefix' => 'product/', 'namespace' => 'System', 'name' => 'category.'], function () {
     Route::resource('category', 'CategoryController');
 });
+
+//Assignment 1 ends
+
+
+//Assignment 2 starts
+Route::group(['namespace' => 'System'], function () {
+    Route::resources([
+        'customer' => 'CustomerController',
+        'city' => 'CityController',
+    ]);
+});
+//Assignment 2 ends
